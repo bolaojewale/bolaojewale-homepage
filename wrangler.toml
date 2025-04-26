@@ -1,0 +1,19 @@
+name = "bolaojewale-homepage"
+compatibility_date = "2024-04-26"
+
+# Use nodejs_compat flag instead of node_compat
+compatibility_flags = ["nodejs_compat"]
+
+main = "dist/_worker.js"
+
+[site]
+bucket = "./dist"
+
+[build]
+command = "npm run build"
+
+# Add KV namespace for sessions
+[[kv_namespaces]]
+binding = "SESSION"
+id = "your-kv-id-here"
+preview_id = "your-preview-kv-id-here"
