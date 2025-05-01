@@ -1,5 +1,5 @@
 ---
-title: "Coming Soon
+title: "Coming Soon"
 description: "this is a post example"
 pubDate: 2025-05-01
 category: "intro"
