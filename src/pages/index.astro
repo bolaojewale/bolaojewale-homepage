@@ -3,7 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card/index.astro";
 import IntroCard from "../components/IntroCard.astro";
 import ContactsCard from "../components/ContactsCard.astro";
+<!-- Removing TimeZoneCard
 import TimeZone from "../components/TimeZoneCard.astro";
+-->
+import MyStack from "../components/MyStack.astro";
 import AboutMe from "../components/AboutMe.astro";
 import Now from "../components/Now.astro";
 import Globe from "../components/Globe";
@@ -48,7 +51,10 @@ const posts = (await getCollection("blog"))?.sort(
     <IntroCard />
     <AboutMe />
     <ContactsCard />
+    <!-- Removing TimeZoneCard
     <TimeZone />
+    -->
+    <MyStack />
     <Now />
     <Card
       colorText="text-neutral-900"
