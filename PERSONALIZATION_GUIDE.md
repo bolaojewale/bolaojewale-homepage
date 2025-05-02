@@ -93,3 +93,6 @@ colors: {
   },
 }
 ```
+### Icons
+Use the following for new icons
+https://icon-sets.iconify.design/ri/?keyword=Remix+Icon[https://icon-sets.iconify.design/ri/?keyword=Remix+Icon]
