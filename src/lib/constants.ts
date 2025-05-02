@@ -2,9 +2,8 @@ export const LINKS = {
   github: "https://github.com/thecybergardener",
   linkedin: "https://www.linkedin.com/in/bola-ojewale/",
   medium: "https://cybergardner.medium.com/",
-  discord: "https://discordapp.com/users/163300027618295808",
-  dribble: "https://dribbble.com/Ladvace_Jace",
   email: "me@bolaojewale.com",
+  twitter: "https://twitter.com/cybergardenerb",
 };
 
 export const loaderAnimation = [
