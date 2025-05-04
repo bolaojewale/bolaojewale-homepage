@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/bolaojewale
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://bolaojewale.com
+  * I am bolaojewale (https://keybase.io/bolaojewale) on keybase.
+  * I have a public key ASC_vxMIUwF3qGGN6J-hf4rCYmxXEJORoHHO5yDVZmHpzAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120bfbf1308530177a8618de89fa17f8ac2626c57109391a071cee720d56661e9cc0a",
+      "host": "keybase.io",
+      "kid": "0120bfbf1308530177a8618de89fa17f8ac2626c57109391a071cee720d56661e9cc0a",
+      "uid": "275da8e9eb46d0c09462a8cf0f0a3819",
+      "username": "bolaojewale"
+    },
+    "merkle_root": {
+      "ctime": 1746337775,
+      "hash": "70d4fde391b85aeb341e20c31419d30f54428bfa5d2d3fe27237e13f6267babfbabc2d1a1be82178512dbe7c3d6da0b080c6998b894b2618e5d865591891f25e",
+      "hash_meta": "398ee81a5ff386005b637c9fc0c35c21e76eac1526cc75dcc09510ba1c44570c",
+      "seqno": 26766361
+    },
+    "service": {
+      "entropy": "94BLxU+rYFtb7drOuzzFLjCg",
+      "hostname": "bolaojewale.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.5.1"
+  },
+  "ctime": 1746337962,
+  "expire_in": 504576000,
+  "prev": "966b75822e8a94bb99424118bed417f16399683440f63194398e4477c2f9df69",
+  "seqno": 5,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgv78TCFMBd6hhjeifoX+KwmJsVxCTkaBxzucg1WZh6cwKp3BheWxvYWTESpcCBcQglmt1gi6KlLuZQkEYvtQX8WOZaDRA9jGUOY5Ed8L532nEILRLIY1XwzrkT26s4E6vY2qNeYlk94g8+upn1jhWN72RAgHCo3NpZ8RAglRVKOyN0DM2CRvafNxM6CyEU7MO8fYjJP5WrWaQ8WgBIDLfT5DI9g6JnvYjFbjiNtWuX0ZsMxs/BR3yzVTPD6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIAm7jDW5JWpVbPeFrFqAUz5sx/7artK86scDQxV2rCiIo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/bolaojewale
+
+==================================================================
