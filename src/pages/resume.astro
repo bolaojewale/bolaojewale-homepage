@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - Bola Ojewale</title>
+  <meta name="description" content="Resume of Bola Ojewale - Cybersecurity Engineer">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Satoshi', sans-serif;
+    }
+    .toc-active {
+      background-color: rgba(76, 187, 1, 0.1);
+      border-left: 3px solid #4CBB01;
+      padding-left: 9px;
+    }
+    #toc-sidebar {
+      transition: height 0.3s ease;
+    }
+    #toc-sidebar.collapsed {
+      height: 56px !important;
+      overflow: hidden;
+    }
+    #toc-sidebar.collapsed .toc-content {
+      display: none;
+    }
+    #toc-sidebar.collapsed .toc-header {
+      padding: 12px 16px;
+      margin: 0;
+      justify-content: flex-end;
+    }
+    #toc-sidebar.collapsed h3 {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-neutral-900 text-white">
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Table of contents smooth scrolling
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const sections = document.querySelectorAll('section[id]');
+    const tocToggle = document.getElementById('toc-toggle');
+    const tocSidebar = document.getElementById('toc-sidebar');
+    const tocNav = document.getElementById('toc-nav');
+
+    // Smooth scrolling for TOC links
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href')?.substring(1);
+        const target = document.getElementById(targetId || '');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Toggle TOC visibility
+    tocToggle?.addEventListener('click', () => {
+      tocSidebar?.classList.toggle('collapsed');
+      // Keep hamburger icon unchanged
+    });
+
+    // Highlight active section in TOC
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -80% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Remove active class from all TOC links
+          tocLinks.forEach(link => link.classList.remove('toc-active'));
+          
+          // Add active class to corresponding TOC link
+          const activeLink = document.querySelector(`a[href="#${entry.target.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('toc-active');
+          }
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  });
+</script>
+
+  <main class="min-h-screen bg-neutral-900 text-white font-mono flex">
+    <!-- Main Content -->
+    <div class="flex-1 max-w-4xl mx-auto px-4 py-8 pr-4">
+      <!-- Header -->
+      <header class="mb-8 text-center">
+        <h1 class="text-6xl font-bold mb-2 text-[#4CBB01]">Bola Ojewale</h1>
+        <h2 class="text-2xl mb-4 text-gray-300">Cybersecurity Engineer</h2>
+        <div class="flex justify-center space-x-4 text-lg">
+          <a href="mailto:me@bolaojewale.com" class="hover:text-[#4CBB01] transition-colors">Email</a>
+          <a href="https://www.linkedin.com/in/bola-ojewale" target="_blank" class="hover:text-[#4CBB01] transition-colors">LinkedIn</a>
+          <a href="https://github.com/thecybergardener" target="_blank" class="hover:text-[#4CBB01] transition-colors">GitHub</a>
+        </div>
+      </header>
+
+      <!-- About Section -->
+      <section id="about" class="mb-12">
+        <h2 class="text-4xl font-bold mb-4 text-[#4CBB01]">About</h2>
+        <p class="leading-relaxed text-gray-300 text-lg">
+          Experienced Senior SIEM Engineer and Security Architect with over 8 years of experience in infrastructure design, incident 
+          response, and advanced threat detection. Expert in Splunk ES administration and cybersecurity automation, with a track 
+          record of leading enterprise-wide SIEM implementations, optimizing detection workflows, and aligning security controls with 
+          industry standards. Passionate about protecting assets, mentoring junior engineers, and building scalable security frameworks.
+        </p>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="mb-12">
+        <h2 class="text-4xl font-bold mb-6 text-[#4CBB01]">Experience</h2>
+        
+        <div class="space-y-8">
+          <div>
+            <div class="mb-3">
+              <h3 class="text-xl font-bold text-white mb-1">Senior Cybersecurity Engineer</h3>
+              <div class="text-xl text-[#4CBB01]">Intel Corporation</div>
+              <div class="text-xl text-gray-400">March 2017 - Present</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="mb-3">
+              <h3 class="text-xl font-bold text-white mb-1">Cybersecurity Analyst</h3>
+              <div class="text-xl text-[#4CBB01]">Paychex</div>
+              <div class="text-xl text-gray-400">Janary 2015 - June 2016</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="mb-3">
+              <h3 class="text-xl font-bold text-white mb-1">Enterprise Data Security Administrator</h3>
+              <div class="text-xl text-[#4CBB01]">Paychex</div>
+              <div class="text-xl text-gray-400">June 2014 - December 2015</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="mb-3">
+              <h3 class="text-xl font-bold text-white mb-1">Informtaion Technology Support</h3>
+              <div class="text-xl text-[#4CBB01]">Unisys Technical Services</div>
+              <div class="text-xl text-gray-400">March 2012 - August 2014</div>
+            </div>
+          </div>
+          
+          <div>
+            <div class="mb-3">
+              <h3 class="text-xl font-bold text-white mb-1">Network Security Specailist</h3>
+              <div class="text-xl text-[#4CBB01]">United Illuminating</div>
+              <div class="text-xl text-gray-400">June 2011 - November 2011</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="mb-12">
+        <h2 class="text-4xl font-bold mb-6 text-[#4CBB01]">Education</h2>
+        
+        <div>
+          <h3 class="text-xl font-bold text-white mb-1">Bachelor of Science in Information Security & Forensics</h3>
+          <div class="text-xl text-[#4CBB01]">Rochester Institute of Technology</div>
+          <div class="text-xl text-gray-400">Class of 2016</div>
+        </div>
+      </section>
+
+      <!-- Certifications Section -->
+      <section id="certifications" class="mb-12">
+        <h2 class="text-4xl font-bold mb-6 text-[#4CBB01]">Certifications</h2>
+        
+        <ul class="space-y-4">
+          <li>
+            <div class="text-white text-lg">Certified Information Systems Security Professional (CISSP)</div>
+            <div class="text-base text-gray-400">March 2025</div>
+          </li>
+          <li>
+            <div class="text-white text-lg">Cybersecurity Analyst (CySA+)</div>
+            <div class="text-base text-gray-400">June 2023</div>
+          </li>
+          <li>
+            <div class="text-white text-lg">Certified Cloud Security Professional (CCSP)</div>
+            <div class="text-base text-gray-400">July 2023</div>
+          </li>
+          <li>
+            <div class="text-white text-lg">Splunk Enterprise Security Certified Admin</div>
+            <div class="text-base text-gray-400">December 2022</div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Personal Projects Section -->
+      <section id="projects" class="mb-12">
+        <h2 class="text-4xl font-bold mb-6 text-[#4CBB01]">Personal Projects</h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-2xl font-semibold mb-2 text-white">Threat Intelligence Dashboard</h3>
+            <p class="mb-2 text-[#4CBB01] text-lg">Python, Flask, D3.js</p>
+            <p class="text-base text-gray-300">
+              Built a real-time dashboard for visualizing threat intelligence feeds and security metrics.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold mb-2 text-white">Network Security Scanner</h3>
+            <p class="mb-2 text-[#4CBB01] text-lg">Python, Nmap, SQLite</p>
+            <p class="text-base text-gray-300">
+              Developed an automated network vulnerability scanner with reporting capabilities.
+            </p>
+          </div>
+
+          <div>
+            <a href="https://github.com/thecybergardener/pki-manager" target="_blank" class="hover:text-[#4CBB01] transition-colors">
+            <h3 class="text-2xl font-semibold mb-2 text-white">TLS/SSL Self Signed CA</h3></a>
+            <p class="mb-2 text-[#4CBB01] text-lg">Bash</p>
+            <p class="text-base text-gray-300">
+              Created a self-signed Certificate Authority (CA) for internal use, including certificate generation and revocation.
+            </p>
+          </div>
+
+          <div>
+            <a href="https://github.com/thecybergardener/plant_tracker" target="_blank" class="hover:text-[#4CBB01] transition-colors">
+            <h3 class="text-2xl font-semibold mb-2 text-white">Plant Care Tracker</h3></a>
+            <p class="mb-2 text-[#4CBB01] text-lg">Python</p>
+            <p class="text-base text-gray-300">
+              Developed a Python application to track plant care schedules, watering reminders, and growth metrics.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="mb-12">
+        <h2 class="text-4xl font-bold mb-6 text-[#4CBB01]">Skills</h2>
+        
+        <div class="space-y-6">
+
+          <div>
+            <h3 class="text-2xl font-semibold mb-3 text-white">Security</h3>
+            <ul class="space-y-1 text-base ml-4">
+              <li class="text-gray-300">• SIEM (Splunk | CrowdStrike NG SIEM | Wazuh | ArcSight)</li>
+              <li class="text-gray-300">• Endpoint Monitoring (CrowdStrike Falcon | Osquery | Wazuh | Carbon Black)</li>
+              <li class="text-gray-300">• Security Assessment Tools (Burp Suite | Kali Linux | Metasploit | Nmap | Nessus)</li>
+              <li class="text-gray-300">• Intrusion Detection Systems (Suricata)</li>
+              <li class="text-gray-300">• Firewalls (pfSense | ModSecurity)</li>
+              <li class="text-gray-300">• Incident Response</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold mb-3 text-white">Infrastructure</h3>
+            <ul class="space-y-1 text-base ml-4">
+              <li class="text-gray-300">• Cloud Providers (AWS | Azure)</li>
+              <li class="text-gray-300">• DevOps Tools (Git | Ansible | Terraform)</li>
+              <li class="text-gray-300">• Scripting (Python, PowerShell, Bash)</li>
+              <li class="text-gray-300">• Cloud Security (AWS, Azure, GCP)</li>
+              <li class="text-gray-300">• Network Security (Firewalls, IDS/IPS)</li>
+              <li class="text-gray-300">• Incident Response & Forensics</li>
+            </ul>
+          </div>
+
+          <!-- <div>
+            <h3 class="text-2xl font-semibold mb-3 text-white">AI for Cybersecurity</h3>
+            <ul class="space-y-1 text-base ml-4">
+              <li class="text-gray-300">• AI-Driven Threat Detection</li>
+              <li class="text-gray-300">• Behavioral Analytics using ML</li>
+              <li class="text-gray-300">• Automated TTP Correlation using LLMs</li>
+              <li class="text-gray-300">• Threat Intelligence Enrichment using NLP</li>
+              <li class="text-gray-300">• Custom Model Training on Security Logs</li>
+              <li class="text-gray-300">• Log Normalization & Parsing with AI Assistants</li>
+            </ul>
+          </div> -->
+
+          <div>
+            <h3 class="text-2xl font-semibold mb-3 text-white">Networking</h3>
+            <ul class="space-y-1 text-base ml-4">
+              <li class="text-gray-300">• Network Engineering (Routing | Switching | VLANs)</li>
+              <li class="text-gray-300">• Protocol Analysis (Wireshark | Zeek)</li>
+              <li class="text-gray-300">• IP Masking (Proxies | Tor | VPN)</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold mb-3 text-white">Operating Systems</h3>
+            <ul class="space-y-1 text-base ml-4">
+              <li class="text-gray-300">• Server Operating Systems (BSD | Linux | Windows)</li>
+              <li class="text-gray-300">• Desktop Operating Systems (Linux | Mac OS | Windows)</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold mb-3 text-white">Programming</h3>
+            <ul class="space-y-1 text-base ml-4">
+              <li class="text-gray-300">• Scripting (Python | PowerShell | Bash)</li>
+              <li class="text-gray-300">• Penetration Testing (Metasploit, Burp Suite, Nmap)</li>
+              <li class="text-gray-300">• Scripting (Python, PowerShell, Bash)</li>
+              <li class="text-gray-300">• Cloud Security (AWS, Azure, GCP)</li>
+              <li class="text-gray-300">• Network Security (Firewalls, IDS/IPS)</li>
+              <li class="text-gray-300">• Incident Response & Forensics</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold mb-3 text-white">Soft Skills</h3>
+            <ul class="space-y-1 text-base ml-4">
+              <li class="text-gray-300">• Risk Assessment & Management</li>
+              <li class="text-gray-300">• Security Policy Development</li>
+              <li class="text-gray-300">• Team Leadership & Collaboration</li>
+              <li class="text-gray-300">• Technical Documentation</li>
+              <li class="text-gray-300">• Stakeholder Communication</li>
+              <li class="text-gray-300">• Continuous Learning & Adaptation</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- Home Button -->
+    <div class="fixed left-4 top-4 z-20">
+      <a href="/" class="bg-neutral-800 border border-neutral-700 rounded-lg p-3 text-gray-400 hover:text-white transition-colors block">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Table of Contents Sidebar -->
+    <div id="toc-sidebar" class="fixed right-4 top-8 w-64 bg-neutral-800 border border-neutral-700 rounded-lg z-10" style="height: 350px; min-height: 56px;">
+      <div class="toc-header flex items-center justify-between p-4 pb-2">
+        <h3 class="text-lg font-semibold text-[#4CBB01]">Contents</h3>
+        <button id="toc-toggle" class="text-gray-400 hover:text-white transition-colors p-1">
+          <!-- Hamburger Icon -->
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="toc-content px-4 pb-4">
+        <nav id="toc-nav" class="space-y-2">
+          <a href="#about" class="toc-link block py-2 px-3 text-base text-gray-300 hover:text-[#4CBB01] hover:bg-neutral-700 rounded transition-colors">About</a>
+          <a href="#experience" class="toc-link block py-2 px-3 text-base text-gray-300 hover:text-[#4CBB01] hover:bg-neutral-700 rounded transition-colors">Experience</a>
+          <a href="#education" class="toc-link block py-2 px-3 text-base text-gray-300 hover:text-[#4CBB01] hover:bg-neutral-700 rounded transition-colors">Education</a>
+          <a href="#certifications" class="toc-link block py-2 px-3 text-base text-gray-300 hover:text-[#4CBB01] hover:bg-neutral-700 rounded transition-colors">Certifications</a>
+          <a href="#projects" class="toc-link block py-2 px-3 text-base text-gray-300 hover:text-[#4CBB01] hover:bg-neutral-700 rounded transition-colors">Personal Projects</a>
+          <a href="#skills" class="toc-link block py-2 px-3 text-base text-gray-300 hover:text-[#4CBB01] hover:bg-neutral-700 rounded transition-colors">Skills</a>
+        </nav>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
