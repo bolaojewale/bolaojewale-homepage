@@ -51,6 +51,39 @@ $ pnpm run dev
 or
 $ npm run dev
 ```
+# Update
+On the UI pull updates from the master branch
+or 
+Use Git - instructions coming
+```
+# Update dev with changes from master branch
+# Step 1: Make sure you're on dev
+git checkout dev
+
+# Step 2: Pull the latest changes
+git fetch origin
+
+# Step 3: Rebase onto main
+git rebase origin/main
+
+```
+If there are any conflicts, Git will pause. Fix them, then:
+```
+git add <file>
+git rebase --continue
+```
+If things get messy, you can cancel:
+```
+git rebase --abort
+```
+If you already pushed dev and use rebase, you’ll need to force-push:
+```
+git push origin dev --force-with-lease
+```
+Verify everything looks good
+```
+git log --oneline --graph --decorate --all
+```
 
 # Be sure to replace the momoji and all the relative information, such as email, website and other info, if you don't your website is gonna point to my domain and to my info
 
