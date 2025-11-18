@@ -6,14 +6,6 @@ import ContactsCard from "../components/ContactsCard.astro";
 import MyStack from "../components/MyStack.astro";
 import AboutMe from "../components/AboutMe.astro";
 import Now from "../components/Now.astro";
-import { getCollection } from "astro:content";
-import { formatDate } from "../lib/helpers";
-
-const posts = (await getCollection("blog"))?.sort(
-  (blogEntryA, blogEntryB) =>
-    (blogEntryB.data.pubDate || new Date()).getTime() -
-    (blogEntryA.data.pubDate || new Date()).getTime()
-);
 ---
 
 <script>
@@ -51,48 +43,83 @@ const posts = (await getCollection("blog"))?.sort(
     <Now />
     <Card
       colSpan="md:col-span-1"
-      href="/blog"
-      rowSpan="md:row-span-2 flex gap-1"
+      href="https://cybergardener.com"
+      rowSpan="md:row-span-2"
       title="Blog"
     >
-      <div class="flex flex-col gap-1">
-        {
-          posts?.slice(0, 3).map((post) => (
-            // <a
-            //   class="text-sm md:text-base decoration-none flex justify-between"
-            //   href={`/blog/${post.id}`}
-            // >
-            <div class="list-none w-full text-neutral-100 hover:text-neutral-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-0">
-              <p class="inline-block whitespace-nowrap text-xs">
-                {post.data.title}
-              </p>
-              {post.data.pubDate && (
-                <time
-                  class="text-right tabular-nums text-xs"
-                  data-date={post.data.pubDate.toISOString()}
-                  datetime={post.data.pubDate.toISOString()}
-                >
-                  {formatDate(post.data.pubDate)}
-                </time>
-              )}
-            </div>
-            // </a>
-          ))
-        }
-      </div>
-    </Card>
-    <Card colSpan="md:col-span-1" rowSpan="md:row-span-2">
-      <p class="text-xs">
-        © 2025 · Forked with ♥️ by Bola Ojewale using 
-        <a
-          class="text-red-500"
-          href="https://astro.build/"
-          target="_blank">Astro</a
-        > from <a
-          class="text-red-500"
-          href="https://gianmarcocavallo.com//"
-          target="_blank">Gianmarco Cavallo</a>.
+      <p class="text-sm">
+        Check out my latest articles and insights on cybersecurity, threat detection, and security automation.
       </p>
     </Card>
+    <Card colSpan="md:col-span-1" rowSpan="md:row-span-2">
+      <div class="h-full flex flex-col justify-between">
+        <div class="text-center">
+          <p class="text-xs text-gray-400 mb-1">Days Since Last Incident</p>
+          <p class="text-4xl font-bold text-primary-500" id="incident-counter">0</p>
+        </div>
+        <p class="text-xs">
+          © 2025 · Forked with ♥️ by Bola Ojewale using
+          <a
+            class="text-red-500"
+            href="https://astro.build/"
+            target="_blank">Astro</a
+          > from <a
+            class="text-red-500"
+            href="https://gianmarcocavallo.com//"
+            target="_blank">Gianmarco Cavallo</a>.
+        </p>
+      </div>
+    </Card>
+    <script>
+      // Set your last incident date here (YYYY-MM-DD)
+      const lastIncidentDate = new Date('2024-01-01');
+
+      function calculateDaysSinceIncident() {
+        const now = new Date();
+        // Convert to EST (UTC-5)
+        const estOffset = -5 * 60;
+        const estTime = new Date(now.getTime() + (estOffset - now.getTimezoneOffset()) * 60000);
+
+        // Set both dates to midnight EST for accurate day counting
+        const estToday = new Date(estTime.getFullYear(), estTime.getMonth(), estTime.getDate());
+        const incidentDay = new Date(lastIncidentDate.getFullYear(), lastIncidentDate.getMonth(), lastIncidentDate.getDate());
+
+        const diffTime = estToday - incidentDay;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+        return diffDays;
+      }
+
+      function updateCounter() {
+        const days = calculateDaysSinceIncident();
+        const counter = document.getElementById('incident-counter');
+        if (counter) {
+          counter.textContent = days.toString();
+        }
+      }
+
+      // Update immediately
+      updateCounter();
+
+      // Update at midnight EST
+      function scheduleNextUpdate() {
+        const now = new Date();
+        const estOffset = -5 * 60;
+        const estTime = new Date(now.getTime() + (estOffset - now.getTimezoneOffset()) * 60000);
+
+        const tomorrow = new Date(estTime);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrow.setHours(0, 0, 0, 0);
+
+        const msUntilMidnight = tomorrow - estTime;
+
+        setTimeout(() => {
+          updateCounter();
+          scheduleNextUpdate();
+        }, msUntilMidnight);
+      }
+
+      scheduleNextUpdate();
+    </script>
   </main>
 </Layout>
